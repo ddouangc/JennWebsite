@@ -1,0 +1,46 @@
+<!-- Header Text -->
+<div id="sariffFontSelectorTable">
+  <h4>
+  SARIFF
+  </h4>
+</div>
+
+<script>
+  // Array of Fonts
+  var sariffFonts = ['Congenial Thin', 'Geosans', 'Raleway', 'Mrs Eaves'];
+  var sariffFontIndex = 0;
+
+  // Create the Table
+  var table = document.createElement('table');
+  table.id = 'sariffTable';
+
+  for (var i = 0; i <= sariffFonts.length/3; i++){
+      var tr = document.createElement('tr');   
+
+      // Create table rows
+      for (var r = 0; r < 3; r++) {
+        
+        var td = document.createElement('td');
+        var text = document.createTextNode(sariffFonts[sariffFontIndex]);
+
+        td.style.fontFamily = sariffFonts[sariffFontIndex].replace(/\s+/, "");
+        td.appendChild(text);
+        tr.appendChild(td);
+        
+        /*
+        var td = document.createElement('td');
+        var text = document.createTextNode('Text');
+        td.appendChild(text);
+        tr.appendChild(td);
+        */
+        // Reached the end of all fonts, stop dynmaically creating table
+        sariffFontIndex++;
+        if (sariffFontIndex == sariffFonts.length) {
+          break;
+        }
+      }
+
+      table.appendChild(tr);
+  }
+  document.getElementById('sariffFontSelectorTable').appendChild(table);
+</script>

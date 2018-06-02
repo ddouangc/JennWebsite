@@ -1,0 +1,68 @@
+<!-- Header Text -->
+<div id="ScriptFontSelectorTable">
+  <h4>
+  SCRIPT
+  </h4>
+</div>
+
+<!-- CSS Style -->
+<style>
+  table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 15px;
+  }
+  
+  td {
+    border: 1px solid black;
+    padding : 15px;
+    text-align: center;
+    width : 10px;
+    font-size: 10;
+  }
+  
+  td.selected {
+    background-color: red;
+  }
+</style>
+
+<script>
+  // Array of Fonts
+  //var fonts = ['Asterism', 'Amelia', 'Anter', 'Argentinian', 'Adelicia', 'At Mahogany', 'Beloved', 'Brunella'];
+  var scriptFonts = ['Adelicia', 'Amelia', 'Anter', 'Argentinian', 'Asterism', 'At Mahogany', 'Beloved', 'Brunella', 'Canvas', 'Carolyna', 'Daughter', 'Madina', 'Maphylla', 'Melika', 'Monte Carlo', 'Mozart', 'Quickpen'];
+  var fontIndex = 0;
+
+  // Create the Table
+  var table = document.createElement('table');
+  table.id = 'scriptTable';
+
+  for (var i = 0; i <= scriptFonts.length/3; i++){
+      var tr = document.createElement('tr');   
+
+      // Create table rows
+      for (var r = 0; r < 3; r++) {
+        
+        var td = document.createElement('td');
+        var text = document.createTextNode(scriptFonts[fontIndex]);
+
+        td.style.fontFamily = scriptFonts[fontIndex].replace(/\s+/, "");
+        td.appendChild(text);
+        tr.appendChild(td);
+        
+        /*
+        var td = document.createElement('td');
+        var text = document.createTextNode('Text');
+        td.appendChild(text);
+        tr.appendChild(td);
+        */
+        // Reached the end of all fonts, stop dynmaically creating table
+        fontIndex++;
+        if (fontIndex == scriptFonts.length) {
+          break;
+        }
+      }
+
+      table.appendChild(tr);
+  }
+  document.getElementById('ScriptFontSelectorTable').appendChild(table);
+</script>
