@@ -34,4 +34,39 @@
     scriptCustomFont = td.getAttribute("style").split(":")[1].trim().replace(";","");
     scriptTextArea.classList.add(scriptCustomFont);
   });
+
+  var sariffFonts = document.querySelector('#sariffFontSelectorTable');
+  var sariffTextArea = document.querySelector('#sariffFontTextBox');
+  var sariffFontCells = sariffFonts.getElementsByClassName('selected');
+  var sariffCustomFont;
+
+  //Add on click listeners
+  sariffFonts.addEventListener('click', function(e) {
+    var td = e.target;
+    
+    //Non Table Cell Clicked
+    if (td.tagName !== 'TD' && td.tagName !== 'SPAN') {
+      return;
+    }
+  
+    //Remove selected class
+    if (sariffFontCells.length) {
+      sariffFontCells[0].className = '';  
+      sariffTextArea.className = '';
+    }
+    
+    //Move up to the parent TD
+    if(td.tagName === 'SPAN') {
+      td = td.parentElement;
+    } 
+
+    //Add selected class
+    td.className = 'selected';
+
+    /*
+    * Javascript to update Text Area
+    */
+    sariffCustomFont = td.getAttribute("style").split(":")[1].trim().replace(";","");
+    sariffTextArea.classList.add(sariffCustomFont);
+  });
 </script>

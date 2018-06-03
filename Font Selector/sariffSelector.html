@@ -1,29 +1,29 @@
 <!-- Header Text -->
-<div id="sariffFontSelectorTable">
+<div id="serifFontSelectorTable">
   <h4>
-  SARIFF
+  SERIF
   </h4>
 </div>
 
 <script>
   // Array of Fonts
-  var sariffFonts = ['Congenial Thin', 'Geosans', 'Raleway', 'Mrs Eaves'];
-  var sariffFontIndex = 0;
+  var serifFonts = ['Congenial Thin', 'Geosans', 'Raleway', 'Mrs Eaves'];
+  var serifFontIndex = 0;
 
   // Create the Table
   var table = document.createElement('table');
-  table.id = 'sariffTable';
+  table.id = 'serifTable';
 
-  for (var i = 0; i <= sariffFonts.length/3; i++){
+  for (var i = 0; i <= serifFonts.length/3; i++){
       var tr = document.createElement('tr');   
 
       // Create table rows
       for (var r = 0; r < 3; r++) {
         
         var td = document.createElement('td');
-        var text = document.createTextNode(sariffFonts[sariffFontIndex]);
+        var text = document.createTextNode(serifFonts[serifFontIndex]);
 
-        td.style.fontFamily = sariffFonts[sariffFontIndex].replace(/\s+/, "");
+        td.style.fontFamily = serifFonts[serifFontIndex].replace(/\s+/, "");
         td.appendChild(text);
         tr.appendChild(td);
         
@@ -34,13 +34,13 @@
         tr.appendChild(td);
         */
         // Reached the end of all fonts, stop dynmaically creating table
-        sariffFontIndex++;
-        if (sariffFontIndex == sariffFonts.length) {
+        serifFontIndex++;
+        if (serifFontIndex == serifFonts.length) {
           break;
         }
       }
 
       table.appendChild(tr);
   }
-  document.getElementById('sariffFontSelectorTable').appendChild(table);
+  document.getElementById('serifFontSelectorTable').appendChild(table);
 </script>
