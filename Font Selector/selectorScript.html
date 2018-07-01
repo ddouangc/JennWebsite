@@ -35,13 +35,13 @@
     scriptTextArea.classList.add(scriptCustomFont);
   });
 
-  var sariffFonts = document.querySelector('#sariffFontSelectorTable');
-  var sariffTextArea = document.querySelector('#sariffFontTextBox');
-  var sariffFontCells = sariffFonts.getElementsByClassName('selected');
-  var sariffCustomFont;
+  var serifFonts = document.querySelector('#serifFontSelectorTable');
+  var serifTextArea = document.querySelector('#serifFontTextBox');
+  var serifFontCells = serifFonts.getElementsByClassName('selected');
+  var serifCustomFont;
 
   //Add on click listeners
-  sariffFonts.addEventListener('click', function(e) {
+  serifFonts.addEventListener('click', function(e) {
     var td = e.target;
     
     //Non Table Cell Clicked
@@ -50,9 +50,9 @@
     }
   
     //Remove selected class
-    if (sariffFontCells.length) {
-      sariffFontCells[0].className = '';  
-      sariffTextArea.className = '';
+    if (serifFontCells.length) {
+      serifFontCells[0].className = '';  
+      serifTextArea.className = '';
     }
     
     //Move up to the parent TD
@@ -66,7 +66,7 @@
     /*
     * Javascript to update Text Area
     */
-    sariffCustomFont = td.getAttribute("style").split(":")[1].trim().replace(";","");
-    sariffTextArea.classList.add(sariffCustomFont);
+    serifCustomFont = td.getAttribute("style").split(":")[1].trim().replace(";","");
+    serifTextArea.classList.add(serifCustomFont);
   });
 </script>
