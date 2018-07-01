@@ -1,40 +1,16 @@
 <!-- Header Text -->
-<div id="serifFontSelectorTable">
+<div id="serifFontSelector">
   <h4>
   SERIF
   </h4>
+
+  <div class="custom-select">
+    <select> 
+      <option value="0">Select Font :</option>
+      <option value="1">Congenial Thin</option>
+      <option value="2">Geosans</option>
+      <option value="3">Raleway</option>
+      <option value="4">Mrs Eaves</option>
+    </select>
+  </div>
 </div>
-
-<script>
-  // Array of Fonts
-  var serifFonts = ['Congenial Thin', 'Geosans', 'Raleway', 'Mrs Eaves'];
-  var serifFontIndex = 0;
-
-  // Create the Table
-  var table = document.createElement('table');
-  table.id = 'serifTable';
-
-  for (var i = 0; i <= serifFonts.length/3; i++){
-      var tr = document.createElement('tr');   
-
-      // Create table rows
-      for (var r = 0; r < 3; r++) {
-        
-        var td = document.createElement('td');
-        var text = document.createTextNode(serifFonts[serifFontIndex]);
-
-        td.style.fontFamily = serifFonts[serifFontIndex].replace(/\s+/, "");
-        td.appendChild(text);
-        tr.appendChild(td);
-        
-        // Reached the end of all fonts, stop dynmaically creating table
-        serifFontIndex++;
-        if (serifFontIndex == serifFonts.length) {
-          break;
-        }
-      }
-
-      table.appendChild(tr);
-  }
-  document.getElementById('serifFontSelectorTable').appendChild(table);
-</script>

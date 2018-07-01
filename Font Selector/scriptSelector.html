@@ -1,50 +1,86 @@
+<!-- CSS Style -->
+<style>
+  /*the container must be positioned relative:*/
+  .custom-select {
+    position: relative;
+    font-family: Arial;
+  }
+  .custom-select select {
+    display: none; /*hide original SELECT element:*/
+  }
+  .select-selected {
+    background-color: DodgerBlue;
+  }
+  /*style the arrow inside the select element:*/
+  .select-selected:after {
+    position: absolute;
+    content: "";
+    top: 14px;
+    right: 10px;
+    width: 0;
+    height: 0;
+    border: 6px solid transparent;
+    border-color: #fff transparent transparent transparent;
+  }
+  /*point the arrow upwards when the select box is open (active):*/
+  .select-selected.select-arrow-active:after {
+    border-color: transparent transparent #fff transparent;
+    top: 7px;
+  }
+  /*style the items (options), including the selected item:*/
+  .select-items div,.select-selected {
+    color: #ffffff;
+    padding: 8px 16px;
+    border: 1px solid transparent;
+    border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+    cursor: pointer;
+    user-select: none;
+  }
+  /*style items (options):*/
+  .select-items {
+    position: absolute;
+    background-color: DodgerBlue;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 99;
+  }
+  /*hide the items when the select box is closed:*/
+  .select-hide {
+    display: none;
+  }
+  .select-items div:hover, .same-as-selected {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+</style>
+
 <!-- Header Text -->
 <div id="ScriptFontSelector">
   <h4>
   SCRIPT
   </h4>
+
+  <div class="custom-select">
+    <select>
+      <option value="0">Select Font :</option>
+      <option value="1">Adelicia</option>
+      <option value="2">Amelia</option>
+      <option value="3">Anter</option>
+      <option value="4">Argentinian</option>
+      <option value="5">Asterism</option>
+      <option value="6">At Mahogany</option>
+      <option value="7">Beloved</option>
+      <option value="8">Brunella</option>
+      <option value="9">Canvas</option>
+      <option value="10">Carolyna</option>
+      <option value="11">Daughter</option>
+      <option value="12">Madina</option>
+      <option value="13">Maphylla</option>
+      <option value="14">Melika</option>
+      <option value="15">Monte Carlo</option>
+      <option value="16">Mozart</option>
+      <option value="17">Quickpen</option>
+    </select>
+  </div>
+  
 </div>
-
-<!-- CSS Style -->
-<style>
-  table {
-    width: 100%;
-    border-collapse: separate;
-    border-spacing: 15px;
-  }
-  
-  td {
-    background-color: #CCCCCC;
-    border: 1px solid black;
-    padding : 15px;
-    text-align: center;
-    width : 10px;
-    font-size: 10;
-  }
-  
-  td.selected {
-    background-color: #D0A2A1;
-  }
-</style>
-
-<script>
-  // Array of Fonts
-  //var fonts = ['Asterism', 'Amelia', 'Anter', 'Argentinian', 'Adelicia', 'At Mahogany', 'Beloved', 'Brunella'];
-  var scriptFonts = ['Adelicia', 'Amelia', 'Anter', 'Argentinian', 'Asterism', 'At Mahogany', 'Beloved', 'Brunella', 'Canvas', 'Carolyna', 'Daughter', 'Madina', 'Maphylla', 'Melika', 'Monte Carlo', 'Mozart', 'Quickpen'];
-  var fontIndex = 0;
-
-  // Create the Select object
-  var select = document.createElement('SELECT');
-  select.id = 'scriptSelector';
-
-  for (var i = 0; i < scriptFonts.length; i++) {
-    var option = document.createElement('OPTION');
-
-    var text = document.createTextNode(scriptFonts[fontIndex]);
-
-        select.appendChild(text);
-        option.appendChild(select);
-  }
-
-  document.getElementById('ScriptFontSelector').appendChild(select);
-</script>
