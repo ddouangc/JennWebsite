@@ -37,10 +37,12 @@
               // Update the appropriate text box
               if (this.parentNode.parentNode.parentNode.id == "ScriptFontSelector") {
                   customFont = this.innerHTML.trim().replace(/\s/g, '');
-                  serifTextArea.classList.add(customFont);
+                  var scriptTextArea = document.querySelector('#scriptFontTextBox');
+                  scriptTextArea.classList.add(customFont);
               }
               else {
                   customFont = this.innerHTML.trim().replace(/\s/g, '');
+                  var serifTextArea = document.querySelector('#serifFontTextBox');
                   serifTextArea.classList.add(customFont);
               }
 
